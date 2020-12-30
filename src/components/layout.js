@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 
 export default function Layout({ children }) {
   return (
-    <div style={{ margin: `0 auto`, maxWidth: 650, padding: `0 1rem` }}>
+    <div id="layout">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Sean MacPherson</title>

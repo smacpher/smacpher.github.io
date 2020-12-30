@@ -5,7 +5,7 @@ import "./index.css"
 export default function Home() {
   return (
     <Layout>
-      <div id="container">
+      <div id="home">
         <div id="hello">
           <h1>Hi, I'm Sean.</h1>
         </div>
