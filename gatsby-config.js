@@ -7,5 +7,11 @@ module.exports = {
         omitGoogleFont: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["G-VKB3HGM2PQ"],
+      },
+    },
   ],
 }

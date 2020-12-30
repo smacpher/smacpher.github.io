@@ -13,10 +13,10 @@ export default function Home() {
           <p>
             I’m passionate about using technology for good. I’m primarily
             interested in clean energy and health. I’m also deeply curious about
-            the brain and understanding how to prevent, diagnose, and treat
-            mental health disorders. Currently, I’m honing my math, engineering,
-            and product chops at <a href="https://www.myst.ai">Myst AI</a>{" "}
-            working at the intersection of technology and clean energy.
+            the brain and understanding how to destigmatize and treat mental
+            health disorders. Currently, I’m honing my math, engineering, and
+            product chops at <a href="https://www.myst.ai">Myst AI</a> working
+            at the intersection of technology and clean energy.
           </p>
         </div>
       </div>
