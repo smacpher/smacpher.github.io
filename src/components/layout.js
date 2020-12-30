@@ -1,4 +1,5 @@
 import React from "react"
+import "fontsource-halant"
 
 export default function Layout({ children }) {
   return (
