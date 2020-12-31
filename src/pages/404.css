@@ -1,0 +1,9 @@
+div.not-found {
+  -ms-transform: translate(-50%, -50%);
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
