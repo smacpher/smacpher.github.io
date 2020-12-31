@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 
 export default function Layout({ children }) {
   return (
-    <div id="layout">
+    <div className="layout">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Sean MacPherson</title>
