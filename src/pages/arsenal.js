@@ -2,7 +2,6 @@ import { GiphyFetch } from "@giphy/js-fetch-api"
 import { Gif } from "@giphy/react-components"
 import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
-import "./404.css"
 
 async function fetchRandomArsenalGif() {
   // TODO(smacpher): Template this in as an environment variable.
