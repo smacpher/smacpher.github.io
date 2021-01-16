@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@giphy/js-fetch-api": "^2.0.1",
-    "@giphy/react-component": "^2.1.0",
+    "@giphy/react-components": "^2.1.0",
     "fontsource-halant": "^4.0.0",
     "gatsby-plugin-google-gtag": "^2.5.0",
     "gatsby-plugin-manifest": "^2.9.1",
