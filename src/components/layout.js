@@ -1,5 +1,4 @@
 import React from "react"
-import "fontsource-halant"
 import Helmet from "react-helmet"
 
 export default function Layout({ children }) {

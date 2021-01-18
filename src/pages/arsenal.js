@@ -1,6 +1,7 @@
-import { GiphyFetch } from "@giphy/js-fetch-api"
-import { Gif } from "@giphy/react-components"
 import React, { useEffect, useState } from "react"
+
+import { Gif } from "@giphy/react-components"
+import { GiphyFetch } from "@giphy/js-fetch-api"
 import Layout from "../components/layout"
 
 async function fetchRandomArsenalGif() {

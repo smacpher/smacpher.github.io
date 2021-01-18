@@ -12,19 +12,21 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@fontsource/halant": "^4.0.0",
     "@giphy/js-fetch-api": "^2.0.1",
     "@giphy/react-components": "^2.1.0",
-    "fontsource-halant": "^4.0.0",
+    "gatsby": "^2.26.1",
     "gatsby-plugin-google-gtag": "^2.5.0",
     "gatsby-plugin-manifest": "^2.9.1",
     "gatsby-plugin-offline": "^3.7.1",
     "gatsby-plugin-react-helmet": "^3.7.0",
     "gatsby-plugin-typography": "^2.9.0",
-    "gatsby": "^2.26.1",
+    "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "react-three-fiber": "^5.3.14",
     "react-typography": "^0.16.19",
-    "react": "^16.12.0",
+    "three": "^0.124.0",
     "typography": "^0.16.19"
   },
   "devDependencies": {
