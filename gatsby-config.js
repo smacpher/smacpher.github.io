@@ -8,6 +8,9 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-typescript`,
+    },
+    {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [`G-VKB3HGM2PQ`],
