@@ -1,10 +1,10 @@
 import "../styles/threebody.css"
 
+import { Camera, MeshPhongMaterial, PerspectiveCamera, Vector3 } from "three"
 import { Canvas, MeshProps, useFrame } from "react-three-fiber"
 import React, { useRef } from "react"
 
 import Layout from "../components/layout"
-import { Vector3 } from "three"
 
 /**
  * Calculating simple circular orbits
@@ -37,7 +37,7 @@ import { Vector3 } from "three"
  * ((G * m1 * m2) / r^2) * r = m1 * a
  *
  * a can also be re-written as: a = d^2r / dt^2 (second deriv. of the position vector, r, w.r.t to time.) so we're left
- * with:
+ * with (flipped left and right side, too):
  *
  * m1 * d^2r / dt^2 = ((G * m1 * m2) / r^2) * r
  *
@@ -61,7 +61,7 @@ import { Vector3 } from "three"
  *
  * given initial position and velocity vectors for the two bodies, we can calculate their change in velocities at
  * each time step, use that to calculate their instantaneous velocity (add that to their previous velocities) and then since
- * velocity is just change in position over time, add that to the current positionv vector to get the next one.
+ * velocity is just change in position over time, add that to the current position vector to get the next one.
  *
  * Before integrating these equations, first non-dimensionalize them. We convert all quantities that have dimensions (e.g. m/s, kg, etc.)
  * into ones that don't have dimensional quantities by dividing them by some reference value with the same dimension. This helps
@@ -76,11 +76,10 @@ import { Vector3 } from "three"
  * dr_i / dt = K_2 * v_i
  */
 
-function Sphere(props) {
+function Sphere({ meshRef, ...props }) {
   return (
-    <mesh {...props}>
+    <mesh ref={meshRef} {...props}>
       <sphereBufferGeometry args={[0.5, 30, 30]} />
-      {/* <boxBufferGeometry args={[1, 1, 1]} /> */}
       <meshPhongMaterial color={"blue"} />
     </mesh>
   )
@@ -95,28 +94,16 @@ const r_nd = 5.326e12 // m, distance between stars in Alpha Centauri
 const v_nd = 30000 // m/s, relative velocity of earth around the sun
 const t_nd = 79.91 * 365 * 24 * 3600 * 0.51 // orbital period of Alpha Centauri
 
-// Define masses of the bodies.
-const m1 = 1.1 // Alpha Centauri A
-const m2 = 0.907 // Alpha Centauri B
-
-// Define initial position vectors.
-const r1 = new Vector3(-0.5, 0, 0) // m
-const r2 = new Vector3(0.5, 0, 0) // m
-
-// Define initial velocities
-const v1 = new Vector3(0.01, 0.01, 0) // m/s
-const v2 = new Vector3(-0.05, 0, -0.1) // m/s
-
 function compute_differentials(m1, m2, v1, v2, r1, r2) {
   // Calculate the vector between the two bodies.
   const r12 = r1.clone().sub(r2)
 
-  // Calculate the magnitude or "norm" of the vector between the two bodies.
-  const r_norm = r21.length()
+  // Calculate the length or "norm" of the vector between the two bodies.
+  const r_norm = r12.length()
 
   // Calculate the velocity differentials for both bodies.
-  const dv1_dt = (m2 / r_norm ** 3) * -r12
-  const dv2_dt = (m1 / r_norm ** 3) * r12
+  const dv1_dt = r12.negate().multiplyScalar(m2 / r_norm ** 3)
+  const dv2_dt = r1.multiplyScalar(m1 / r_norm ** 3)
 
   // Calculate the positional differentials for both bodies.
   const dr1_dt = v1
@@ -125,22 +112,87 @@ function compute_differentials(m1, m2, v1, v2, r1, r2) {
   return [dv1_dt, dv2_dt, dr1_dt, dr2_dt]
 }
 
-export default function ThreeBody() {
+function compute_center_of_mass_vectors(m1, m2, v1, v2, r1, r2) {
+  const v_center_of_mass = new Vector3()
+  v_center_of_mass
+    .add(v1.multiplyScalar(m1))
+    .add(v2.multiplyScalar(m2))
+    .divideScalar(m1 + m2)
+
+  const r_center_of_mass = new Vector3()
+  r_center_of_mass
+    .add(r1.multiplyScalar(m1))
+    .add(r2.multiplyScalar(m2))
+    .divideScalar(m1 + m2)
+
+  return [v_center_of_mass, r_center_of_mass]
+}
+
+function ThreeBodySimulation() {
   // Create a reference to hold our time counter.
   const time = useRef(0.0)
 
+  const body1 = useRef()
+  const body2 = useRef()
+
+  // Define masses of the bodies.
+  const m1 = 1.1 // Alpha Centauri A
+  const m2 = 0.907 // Alpha Centauri B
+
+  // Define initial position vectors.
+  const r1 = new Vector3(-1.0, 0, 0) // m
+  const r2 = new Vector3(1.0, 0, 0) // m
+
+  // Define initial velocities
+  const v1 = new Vector3(0.01, 0.01, 0) // m/s
+  const v2 = new Vector3(-0.05, 0, -0.1) // m/s
+
+  // Find center of mass.
+  useFrame(() => {
+    const [dv1_dt, dv2_dt, dr1_dt, dr2_dt] = compute_differentials(
+      m1,
+      m2,
+      v1,
+      v2,
+      r1,
+      r2
+    )
+
+    // Calculate new instantaneous velocities by adding change in velocity to previous velocity.
+    const new_v1 = v1.add(dv1_dt)
+    const new_v2 = v2.add(dv2_dt)
+
+    // Calculate new position by adding new velo
+    // body1.current.position.add(new_v1)
+    // body2.current.position.add(new_v2)
+  })
+
+  return (
+    <>
+      <Sphere meshRef={body1} position={[r1.x, r1.y, r1.z]} />
+      <Sphere meshRef={body2} position={[r2.x, r2.y, r2.z]} />
+    </>
+  )
+}
+
+export default function ThreeBody() {
   // Note: The `Canvas` component represents a scene on the HTML canvas in vanilla three.js.
+
+  const camera = new PerspectiveCamera(
+    70,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  )
+  camera.position.set(0, 7, 7)
+
   return (
     <div className="center canvas-wrapper">
-      <Canvas
-        className="canvas"
-        camera={{ position: [0, 7, 7], near: 5, far: 15 }}
-      >
+      <Canvas camera={camera}>
         <axesHelper args={[5]} />
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <Sphere position={[0, 0, 0]} />
-        <Sphere position={[1, 1, 1]} />
+        <ThreeBodySimulation />
       </Canvas>
     </div>
   )
