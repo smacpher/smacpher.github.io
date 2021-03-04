@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Arsenal renders correctly 1`] = `
+<div
+  className="layout"
+>
+  <div
+    className="center"
+  >
+    <p>
+      Loading...
+    </p>
+  </div>
+</div>
+`;

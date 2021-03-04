@@ -1,4 +1,4 @@
-function compute_differentials(m1, m2, v1, v2, r1, r2) {
+export function compute_differentials(m1, m2, v1, v2, r1, r2) {
   // Calculate the vector between the two bodies.
   const r12 = r1.clone().sub(r2)
 
