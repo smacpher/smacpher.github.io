@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* fonts */
+* {
+    box-sizing: border-box;
+    font-size: 17px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FCF8E8;
+}
+
+.layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.headshot {
+    width: 100px;
+    height: auto;
+    clip-path: circle();
+}
+
+.socials {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row;
+    gap: 10px;
+}
+
+.socials img {
+    width: 20px;
+}
+
+a,
+p {
+    font-family: "Halant", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3 {
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+a {
+    color: #3e6994;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
