@@ -3,6 +3,7 @@
     <title>Sean MacPherson</title>
     <meta name="author" content="Sean MacPherson">
     <link rel="canonical" href="https://www.seanmacpherson.com" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
     <html lang="en">
 </head>
@@ -20,45 +21,62 @@
             </div>
             <div class="section">
                 <h3>January 2023 to June 2024 | Snowflake</h3>
-                <p>After Myst was acquired, I spent a year and a half working to improve Snowflake's machine learning
-                    capabilities.</p>
+                <p>After Myst was acquired, I spent a year and a half working to improve Snowflake's
+                    <a href="https://docs.snowflake.com/en/guides-overview-ai-features">machine learning
+                        capabilities</a>.
+                </p>
                 <p>
                     During my first few weeks, I collaborated with the team to share our expertise in
-                    developing production-grade machine learning systems. This involved sharing knowledge about our API,
-                    time series database, model training and inference platform, and distributed hyperparameter tuning
-                    service.</p>
+                    developing production machine learning systems. This involved sharing knowledge about our
+                    APIs, time series database, model training and inference platform, and hyperparameter tuning
+                    services.
+                </p>
                 <p> I then worked on a nimble team to design and implement Snowflake's first semantic search
-                    functionalities. We shipped built-in functions for vector similarity calculations, created services
-                    for approximate vector search and text embedding generation, and contributed to <a
+                    functionalities. We shipped early access support for built-in vector distance functions, created
+                    services for approximate vector search and text embedding generation, and contributed to <a
                         href="https://www.youtube.com/watch?v=-SQXxxKRRFU">Frosty</a>, an
-                    LLM-powered chatbot built for Snowflake.</p>
+                    LLM-powered chatbot built for Snowflake. These efforts helped pave the way for native <a
+                        href="https://docs.snowflake.com/en/sql-reference/data-types-vector">vector data
+                        types</a>, <a
+                        href="https://docs.snowflake.com/user-guide/snowflake-cortex/vector-embeddings">embedding
+                        generation</a>, and <a
+                        href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/vector-embeddings#vector-similarity-search">search</a>.
+                </p>
                 <p>
                     Motivated by a desire to learn more about performant and secure systems programming, I transitioned
-                    to Snowflake's <a href="https://www.snowflake.com/en/data-cloud/snowpark/">execution environment
-                        team</a>, the platform for many machine learning features. I focused on
+                    to the <a href="https://www.snowflake.com/en/data-cloud/snowpark/">Snowpark</a> Execution
+                    Environment
+                    team. This team was responsible for the platform that powered many machine learning features
+                    like <a href="https://docs.snowflake.com/en/developer-guide/snowflake-ml/overview">Snowflake ML</a>
+                    and
+                    <a href="https://docs.snowflake.com/en/guides-overview-ml-functions">ML Functions</a>. I
+                    focused on
                     optimizing Python environment creation for interactive workloads like <a
                         href="https://www.snowflake.com/en/data-cloud/overview/streamlit-in-snowflake/">Streamlits</a>
                     and <a href="https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks">Notebooks</a>, and
                     <a
                         href="https://www.snowflake.com/engineering-blog/accelerating-hyperparameter-tuning-snowflake-ml/">improving
-                        support</a> for memory and compute-intensive workloads like Distributed
-                    Hyperparameter Optimization.
+                        support</a> for memory and compute-intensive workloads like <a
+                        href="https://docs.snowflake.com/en/developer-guide/snowflake-ml/modeling#label-snowflake-ml-modeling-distributed-hyperparameter">distributed
+                        hyperparameter optimization</a>.
                 </p>
             </div>
             <div class="section">
                 <h3>September 2018 to January 2023 | Myst AI (acquired by Snowflake)</h3>
                 <p>In September 2018, I joined Myst as the founding engineer. Over the next four and a half years, I
                     sharpened my
-                    software engineering and machine learning skills, while learning how to build products and grow a
+                    software engineering and machine learning skills, and learned how to build products and grow a
                     team.</p>
                 <p>
-                    I worked on all parts of our technical stack. Some of the projects the team shipped that I’m most
-                    proud of were: our <a
+                    I worked on all parts of our technical stack. Some of the projects the team shipped that I'm most
+                    proud of include our <a
                         href="https://patents.google.com/patent/US11367007B2/">networks-of-time-series</a>
                     data model, relational and <a href="https://docs.myst.ai/docs/query-time-series-data">time series
                         data persistence</a>
-                    layers, <a href="https://docs.myst.ai/reference/create_project">REST APIs</a>,
-                    <a href="https://pypi.org/project/myst-alpha/">clients</a>, data ingestion, <a
+                    layers, <a href="https://docs.myst.ai/docs/create-a-network-of-time-series">model graph building
+                        experiences</a>, <a href="https://docs.myst.ai/reference/create_project">REST
+                        APIs</a>,
+                    <a href="https://pypi.org/project/myst-alpha/">clients</a>, <a
                         href="https://docs.myst.ai/docs/model-connectors">modeling libraries</a>,
                     model training and
                     inference platform, model definition libraries, and <a
@@ -103,7 +121,7 @@
                     I also did some apprenticeships with coworkers to round out my data science and business
                     development
                     skills and learn how other parts of the business functioned. There was no shortage of work to be
-                    done at Myst so I tried to pitch in where I could.</p>
+                    done at Myst so I tried to contribute where I could.</p>
             </div>
             <div class="section">
                 <h3>August 2015 to September 2018 | Undergrad & Internships</h3>
@@ -119,7 +137,7 @@
                     fall semesters. During community college, I was a math tutor, member of student government, and
                     hosted a podcast for the school newspaper. At Pomona, I was an associate at <a
                         href="https://www.pomonaventures.com">Pomona Ventures</a>, a
-                    student-run entrepreneurship club, helped organize a hackathon, and did <a
+                    student-run entrepreneurship club, helped organize the 5C Hackathon, and did <a
                         href="https://github.com/mgree/tmpl/tree/smacpher">language topic modeling
                         research</a> with
                     a professor.
@@ -138,12 +156,24 @@
                     to scale their data pipelines.
                 </p>
                 <p>
-                    In the summer after my sophomore year, I backpacked with friends through SE Asia.
+                    In the summer after my sophomore year, I backpacked with friends through South East Asia.
                 </p>
                 <p>
                     In the summer after my junior year, I returned to Google Nest, and worked on a simulator to test
                     Smart Home
                     algorithms.</p>
+            </div>
+            <div class="section footer">
+                <p>Sean MacPherson</p>
+                <p>·</p>
+                <p>
+                    48°52.6'S 123°23.6'W
+                </p>
+                <p>·</p>
+                <a class="socials" href="https://www.linkedin.com/in/sean-macpherson" title="LinkedIn"><img
+                        src="assets/linkedin-logo.svg"></a>
+                <a class="socials" href="https://github.com/smacpher" title="GitHub"><img
+                        src="assets/github-logo.svg"></a>
             </div>
         </div>
     </div>
