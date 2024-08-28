@@ -11,10 +11,10 @@
 <body>
     <div class="layout">
         <div class="content">
-            <div class="section">
-                <img class="headshot" src="assets/headshot.png">
+            <div>
+                <img class="headshot" id="headshot" src="assets/headshot.png">
             </div>
-            <div class="section">
+            <div>
                 <p>Hi, I'm Sean 👋🏼. I'm a programmer interested in machine learning,
                     health, and the environment.
                 </p>
@@ -28,14 +28,17 @@
                     device
                     data at <a href="https://store.google.com/us/category/connected_home">Google Nest</a>.</p>
                 <p>Some of the
-                    activites I enjoy in my free time are meditating, playing with dogs, watching soccer, and traveling.
+                    activites I enjoy in my free time are meditating, playing with <a id="dogs-link" href="#">dogs</a>,
+                    watching
+                    <a id="arsenal-link" href="#">soccer</a>,
+                    and traveling.
                 </p>
             </div>
-            <div class=" section">
+            <div>
                 <p>Feel free to <a href="mailto:sean.j.macpherson@gmail.com">contact me</a> or <a href="bio.html">read
                         my detailed bio</a> to learn more about my background.</p>
             </div>
-            <div class="section footer">
+            <div class="footer">
                 <p>Sean MacPherson</p>
                 <p>·</p>
                 <p>
@@ -49,4 +52,11 @@
             </div>
         </div>
     </div>
+    <script>
+        var headshot = document.getElementById('headshot');
+        document.getElementById('arsenal-link').addEventListener('mouseover', function () { headshot.src = "assets/arsenal.gif" });
+        document.getElementById('arsenal-link').addEventListener('mouseout', function () { headshot.src = "assets/headshot.png"; });
+        document.getElementById('dogs-link').addEventListener('mouseover', function () { headshot.src = "assets/rusty.png" });
+        document.getElementById('dogs-link').addEventListener('mouseout', function () { headshot.src = "assets/headshot.png"; });
+    </script>
 </body>
