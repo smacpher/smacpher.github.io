@@ -74,6 +74,26 @@ ul {
     padding: 0px;
 }
 
+/* Home page CTA list (global ul resets bullets) */
+.intro-links-lead {
+    margin-bottom: 0.35em;
+}
+
+.intro-links {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    margin: 0.35em 0 0;
+}
+
+.intro-links li {
+    margin: 0.22em 0;
+    padding-left: 0.2em;
+}
+
+.intro-links li::marker {
+    color: #6b6358;
+}
+
 .blog-card {
     display: flex;
     align-items: center;
